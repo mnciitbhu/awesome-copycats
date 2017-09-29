@@ -55,7 +55,7 @@ local function run_once(cmd_arr)
     end
 end
 
-run_once({ "unclutter -root -idle 2q" }) -- entries must be comma-separated
+run_once({ "unclutter -root -idle 2q", "guake", "nm-applet", "udiskie --tray", "mpd", "compton" }) -- entries must be comma-separated
 -- }}}
 
 -- {{{ Variable definitions
@@ -69,29 +69,28 @@ local browser      = "firefox-developer"
 local guieditor    = "code"
 
 awful.util.terminal = terminal
-awful.util.tagnames = { "1", "2", "3", "4", "5" ,"6", "7", "8", "9", "0" }
+awful.util.tagnames = { "1", "2", "3", "4", "5" ,"1", "2", "3", "4", "5" }
 awful.layout.layouts = {
     awful.layout.suit.floating,
     awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
+    awful.layout.suit.max,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
     --awful.layout.suit.fair,
-    --awful.layout.suit.fair.horizontal,
-    --awful.layout.suit.spiral,
+    awful.layout.suit.fair.horizontal,
+    awful.layout.suit.spiral,
     --awful.layout.suit.spiral.dwindle,
-    --awful.layout.suit.max,
-    --awful.layout.suit.max.fullscreen,
+    awful.layout.suit.tile.left,
     --awful.layout.suit.magnifier,
     --awful.layout.suit.corner.nw,
     --awful.layout.suit.corner.ne,
     --awful.layout.suit.corner.sw,
     --awful.layout.suit.corner.se,
-    --lain.layout.cascade,
+    lain.layout.cascade,
     --lain.layout.cascade.tile,
-    --lain.layout.centerwork,
+    lain.layout.centerwork,
     --lain.layout.centerwork.horizontal,
-    --lain.layout.termfair,
+    lain.layout.termfair,
     --lain.layout.termfair.center,
 }
 awful.util.taglist_buttons = awful.util.table.join(
