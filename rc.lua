@@ -167,6 +167,7 @@ local myawesomemenu = {
     { "restart", awesome.restart },
     { "quit", function() awesome.quit() end }
 }
+
 awful.util.mymainmenu = freedesktop.menu.build({
     icon_size = beautiful.menu_height or 16,
     before = {
@@ -175,6 +176,7 @@ awful.util.mymainmenu = freedesktop.menu.build({
     },
     after = {
         { "Open terminal", terminal },
+				{ "Close", function() awful.util.mymainmenu:toggle() end },
         -- other triads can be put here
     }
 })
@@ -211,6 +213,8 @@ globalkeys = awful.util.table.join(
     -- Take a screenshot
     -- https://github.com/copycat-killer/dots/blob/master/bin/screenshot
 
+    awful.key({ altkey }, "l", function () awful.util.mymainmenu:toggle() end),
+
     awful.key({ }, "Print", function() os.execute("scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/'") end,
                {description = "Take screenshot", group = "system"}),
 
@@ -232,7 +236,7 @@ globalkeys = awful.util.table.join(
             awful.client.focus.history.previous()
             if client.focus then
                 client.focus:raise()
-            end
+							end
         end,
         {description = "go back", group = "client"}),
 
@@ -412,7 +416,8 @@ end
 clientbuttons = awful.util.table.join(
     awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
     awful.button({ modkey }, 1, awful.mouse.client.move),
-    awful.button({ modkey }, 3, awful.mouse.client.resize))
+    awful.button({ modkey }, 3, awful.mouse.client.resize)
+		)
 
 -- Set keys
 root.keys(globalkeys)
