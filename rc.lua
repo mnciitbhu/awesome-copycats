@@ -330,8 +330,11 @@ globalkeys = awful.util.table.join(
             naughty.notify(common)
         end, {description = "Toggle MPD Widget", group = "mpd"}),
 
-    awful.key({ modkey }, "d", function () awful.screen.focused().mypromptbox:run() end,
-              {description = "run prompt", group = "launcher"})
+    awful.key({ altkey }, "d", function () awful.screen.focused().mypromptbox:run() end,
+              {description = "run prompt", group = "launcher"}),
+
+		awful.key({ modkey }, "d", function() os.execute("rofi -show run -lines 12 -width 50 -fake-transparency -config /usr/share/rofi/themes/lb.theme") end,
+              {description = "run rofi", group = "launcher"})
 )
 
 clientkeys = awful.util.table.join(
