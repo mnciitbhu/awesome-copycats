@@ -137,7 +137,7 @@ mpdicon:buttons(awful.util.table.join(
         theme.mpd.update()
     end),
     awful.button({ }, 2, function ()
-        awful.spawn.with_shell(musicplr)
+        awful.spawn.with_shell("mpc toggle")
         theme.mpd.update()
     end),
     awful.button({ }, 3, function ()

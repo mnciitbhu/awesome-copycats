@@ -55,7 +55,7 @@ local function run_once(cmd_arr)
     end
 end
 
-run_once({ "unclutter -root -idle 2q", "guake", "nm-applet", "udiskie --tray", "mpd", "compton" }) -- entries must be comma-separated
+run_once({ "unclutter -root -idle 2q", "guake", "nm-applet", "udiskie --tray", "mpd", "compton", "owncloud" }) -- entries must be comma-separated
 -- }}}
 
 -- {{{ Variable definitions
@@ -431,7 +431,7 @@ awful.rules.rules = {
 
     -- Set Firefox to always map on the first tag on screen 1.
     { rule = { class = "Firefox" },
-      properties = { screen = 1, tag = awful.util.tagnames[1] } },
+      properties = { screen = 1, tag = awful.util.tagnames[3] } },
 
     { rule = { class = "Gimp", role = "gimp-image-window" },
           properties = { maximized = true } },
