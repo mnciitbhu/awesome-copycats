@@ -55,11 +55,11 @@ local function run_once(cmd_arr)
     end
 end
 
-run_once({ "unclutter -root -idle 2q", "guake", "nm-applet", "udiskie --tray", "mpd", "compton", "owncloud" }) -- entries must be comma-separated
+run_once({ "unclutter -root -idle 2q", "mpd", "compton" }) -- entries must be comma-separated
 -- }}}
 
 -- {{{ Variable definitions
-local chosen_theme = "powerarrow-dark"
+local chosen_theme = "multicolor"
 local modkey       = "Mod4"
 local altkey       = "Mod1"
 local terminal     = "urxvt"
@@ -71,26 +71,26 @@ local guieditor    = "code"
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" ,"1", "2", "3", "4", "5" }
 awful.layout.layouts = {
-    awful.layout.suit.floating,
-    awful.layout.suit.tile,
-    awful.layout.suit.max,
+    --awful.layout.suit.floating,
+    --awful.layout.suit.tile,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
+		awful.layout.suit.max,
     --awful.layout.suit.fair,
-    awful.layout.suit.fair.horizontal,
-    awful.layout.suit.spiral,
+    --awful.layout.suit.fair.horizontal,
+    --awful.layout.suit.spiral,
     --awful.layout.suit.spiral.dwindle,
-    awful.layout.suit.tile.left,
+    --awful.layout.suit.tile.left,
     --awful.layout.suit.magnifier,
     --awful.layout.suit.corner.nw,
     --awful.layout.suit.corner.ne,
     --awful.layout.suit.corner.sw,
     --awful.layout.suit.corner.se,
-    lain.layout.cascade,
+    --lain.layout.cascade,
     --lain.layout.cascade.tile,
-    lain.layout.centerwork,
+    --lain.layout.centerwork,
     --lain.layout.centerwork.horizontal,
-    lain.layout.termfair,
+    --lain.layout.termfair,
     --lain.layout.termfair.center,
 }
 awful.util.taglist_buttons = awful.util.table.join(
@@ -333,7 +333,7 @@ globalkeys = awful.util.table.join(
     awful.key({ altkey }, "d", function () awful.screen.focused().mypromptbox:run() end,
               {description = "run prompt", group = "launcher"}),
 
-		awful.key({ modkey }, "d", function() os.execute("rofi -show run -lines 12 -width 50 -fake-transparency -config /usr/share/rofi/themes/lb.theme") end,
+		awful.key({ modkey }, "d", function() os.execute("rofi -show run -lines 12 -width 50 -fake-transparency -config /usr/share/rofi/themes/lb.rasi") end,
               {description = "run rofi", group = "launcher"})
 )
 
